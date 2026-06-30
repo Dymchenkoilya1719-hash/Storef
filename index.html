@@ -365,6 +365,25 @@
             font-weight: 700;
         }
 
+        .product-status-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .status-active {
+            background: #28a745;
+        }
+
+        .status-closed {
+            background: #6c757d;
+        }
+
         .product-body {
             padding: 16px;
         }
@@ -438,6 +457,15 @@
 
         .btn-secondary:hover {
             background: var(--border);
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
         }
 
         /* ===== EMPTY STATE ===== */
@@ -520,13 +548,6 @@
             font-weight: 500;
         }
 
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            width: 100%;
-        }
-
         .toggle-switch {
             position: relative;
             width: 44px;
@@ -557,15 +578,6 @@
             left: 22px;
         }
 
-        .menu-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #e8804d;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
         /* ===== MODALS ===== */
         .modal-overlay {
             display: none;
@@ -587,7 +599,7 @@
             background: var(--bg-secondary);
             border-radius: 20px;
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
             padding: 28px;
@@ -729,215 +741,137 @@
             text-decoration: underline;
         }
 
-        .user-info {
+        /* ===== PROFILE ===== */
+        .profile-header {
             background: var(--bg-primary);
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 16px;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .user-name {
-            font-weight: 700;
+        .profile-avatar {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: 800;
             color: var(--text-primary);
-        }
-
-        .logout-btn {
-            width: 100%;
-            padding: 10px;
-            background: var(--error);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 12px;
-        }
-
-        .logout-btn:hover {
-            background: #c82333;
-        }
-
-        /* ===== CART STYLES ===== */
-        .cart-empty {
-            text-align: center;
-            padding: 32px 0;
-            color: var(--text-secondary);
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .cart-item-image {
-            width: 80px;
-            height: 80px;
-            background: var(--bg-primary);
-            border-radius: 8px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .cart-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .cart-item-price {
-            color: #e8804d;
-            font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .cart-item-qty {
+        .profile-tabs {
             display: flex;
-            align-items: center;
             gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
         }
 
-        .qty-btn {
-            width: 24px;
-            height: 24px;
-            background: var(--border);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--text-primary);
-            transition: 0.2s;
-        }
-
-        .qty-btn:hover {
-            background: #e8804d;
-            color: #fff;
-        }
-
-        .qty-display {
-            min-width: 30px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .remove-btn {
-            color: #dc3545;
+        .profile-tab {
+            padding: 12px 16px;
             background: none;
             border: none;
             cursor: pointer;
             font-weight: 600;
-            font-size: 12px;
+            color: var(--text-secondary);
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
         }
 
-        .cart-total {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 2px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 18px;
-            font-weight: 700;
+        .profile-tab.active {
+            color: #e8804d;
+            border-bottom-color: #e8804d;
         }
 
-        .cart-actions {
-            display: flex;
+        .photo-upload-area {
+            background: var(--bg-primary);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .photo-upload-area:hover {
+            border-color: #e8804d;
+            background: rgba(232, 128, 77, 0.05);
+        }
+
+        .photo-upload-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            margin-top: 16px;
+            margin-bottom: 16px;
         }
 
-        .payment-method {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
+        .photo-btn {
+            padding: 10px;
+            background: var(--bg-primary);
             border: 2px solid var(--border);
             border-radius: 10px;
             cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
             transition: 0.3s;
-            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
         }
 
-        .payment-method.selected {
+        .photo-btn:hover {
             border-color: #e8804d;
             background: rgba(232, 128, 77, 0.1);
         }
 
-        .payment-radio {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border);
+        .photo-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .photo-remove {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: #dc3545;
+            color: #fff;
+            border: none;
             border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            font-weight: 700;
         }
 
-        .payment-method.selected .payment-radio {
-            border-color: #e8804d;
-        }
-
-        .payment-radio::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: #e8804d;
-            border-radius: 50%;
+        input[type="file"] {
             display: none;
-        }
-
-        .payment-method.selected .payment-radio::after {
-            display: block;
-        }
-
-        .payment-info {
-            flex: 1;
-        }
-
-        .payment-title {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .payment-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .installment-section {
-            background: var(--bg-primary);
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 12px;
-            display: none;
-        }
-
-        .installment-section.show {
-            display: block;
-        }
-
-        .installment-info {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
         }
 
         /* ===== FOOTER ===== */
@@ -1004,46 +938,13 @@
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
 
-            .top-stats {
-                gap: 16px;
-                font-size: 12px;
-            }
-
             .modal {
                 max-width: 90vw;
                 padding: 20px;
             }
 
-            .menu-dropdown {
-                right: 0;
-                left: auto;
-                min-width: 220px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-grid {
+            .photo-upload-buttons {
                 grid-template-columns: 1fr;
-            }
-
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .header-right {
-                width: 100%;
-                gap: 8px;
-            }
-
-            .header-btn {
-                flex: 1;
-                justify-content: center;
-                font-size: 12px;
-                padding: 8px 12px;
-            }
-
-            .search-container {
-                flex-direction: column;
             }
         }
     </style>
@@ -1063,6 +964,7 @@
 
         <div class="header-right" style="position: relative;">
             <button class="header-btn" onclick="openLoginModal()">👤 <span id="userDisplay">Войти</span></button>
+            <button class="header-btn" id="publishBtn" style="display: none;" onclick="openPublishModal()">➕ Опубликовать</button>
             <button class="header-btn" onclick="openCartModal()" style="position: relative;">
                 🛒 Корзина
                 <span class="cart-badge" id="cartBadge">0</span>
@@ -1081,6 +983,10 @@
                     <span class="menu-item-label">👥 Группа ВК</span>
                     <span style="font-size: 14px;">→</span>
                 </a>
+                <div class="menu-item" id="profileMenuBtn" style="display: none;" onclick="openProfileModal()">
+                    <span class="menu-item-label">👤 Мой профиль</span>
+                    <span style="font-size: 14px;">→</span>
+                </div>
             </div>
         </div>
     </header>
@@ -1178,7 +1084,7 @@
                 </div>
                 <button type="submit" class="modal-button">Войти</button>
                 <div class="form-link">
-                    Нет аккаунта? <a onclick="switchModal('loginModal', 'registerModal')">Зарегистрируйтесь</a>
+                    Нет аккаунта? <a onclick="switchModal('loginModal', 'registerModal')">Зарегистри��уйтесь</a>
                 </div>
             </form>
         </div>
@@ -1210,6 +1116,81 @@
                     Уже есть аккаунт? <a onclick="switchModal('registerModal', 'loginModal')">Войдите</a>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Publish Modal -->
+    <div class="modal-overlay" id="publishModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">📝 Опубликовать объявление</h2>
+                <button class="modal-close" onclick="closeModal('publishModal')">&times;</button>
+            </div>
+            <form onsubmit="publishListing(event)">
+                <div class="form-group">
+                    <label class="form-label">Название товара</label>
+                    <input type="text" class="form-input" id="pubTitle" placeholder="Введите название" required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Описание</label>
+                    <textarea class="form-textarea" id="pubDescription" placeholder="Подробное описание товара" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Цена (₽)</label>
+                    <input type="number" class="form-input" id="pubPrice" placeholder="Введите цену" min="1" required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Город</label>
+                    <input type="text" class="form-input" id="pubLocation" placeholder="Москва, Казань..." required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Категория</label>
+                    <select class="form-select" id="pubCategory" required>
+                        <option value="">Выберите категорию</option>
+                        <option value="electronics">📱 Электроника</option>
+                        <option value="clothing">👕 Одежда и обувь</option>
+                        <option value="home">🏠 Дом и сад</option>
+                        <option value="auto">🚗 Авто</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Фото това��а</label>
+                    <div class="photo-upload-buttons">
+                        <button type="button" class="photo-btn" onclick="document.getElementById('cameraInput').click()">
+                            <span>📷</span>
+                            <span>Камера</span>
+                        </button>
+                        <button type="button" class="photo-btn" onclick="document.getElementById('galleryInput').click()">
+                            <span>🖼️</span>
+                            <span>Галерея</span>
+                        </button>
+                        <button type="button" class="photo-btn" onclick="document.getElementById('fileInput').click()">
+                            <span>📁</span>
+                            <span>Файлы</span>
+                        </button>
+                    </div>
+                    <input type="file" id="cameraInput" accept="image/*" capture="environment" onchange="addPhoto(event)" />
+                    <input type="file" id="galleryInput" accept="image/*" onchange="addPhoto(event)" />
+                    <input type="file" id="fileInput" accept="image/*" onchange="addPhoto(event)" />
+                    <div class="photo-preview" id="photoPreview"></div>
+                </div>
+
+                <button type="submit" class="modal-button">Опубликовать</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">👤 Мой профиль</h2>
+                <button class="modal-close" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div id="profileContent">
+                <!-- Profile content will be rendered here -->
+            </div>
         </div>
     </div>
 
@@ -1262,7 +1243,9 @@
                         category: 'electronics',
                         location: 'Москва, Хамовники',
                         date: '28.06.2026',
-                        image: 'https://picsum.photos/seed/macbook/400/300'
+                        image: 'https://picsum.photos/seed/macbook/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p2',
@@ -1272,7 +1255,9 @@
                         category: 'clothing',
                         location: 'Казань, Советский',
                         date: '27.06.2026',
-                        image: 'https://picsum.photos/seed/jacket/400/300'
+                        image: 'https://picsum.photos/seed/jacket/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p3',
@@ -1282,7 +1267,9 @@
                         category: 'home',
                         location: 'Санкт-Петербург, Приморский',
                         date: '26.06.2026',
-                        image: 'https://picsum.photos/seed/garden/400/300'
+                        image: 'https://picsum.photos/seed/garden/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p4',
@@ -1292,7 +1279,9 @@
                         category: 'electronics',
                         location: 'Москва, Тверской',
                         date: '25.06.2026',
-                        image: 'https://picsum.photos/seed/iphone14/400/300'
+                        image: 'https://picsum.photos/seed/iphone14/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p5',
@@ -1302,7 +1291,9 @@
                         category: 'clothing',
                         location: 'Екатеринбург, Центральный',
                         date: '24.06.2026',
-                        image: 'https://picsum.photos/seed/timberland/400/300'
+                        image: 'https://picsum.photos/seed/timberland/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p6',
@@ -1312,7 +1303,9 @@
                         category: 'home',
                         location: 'Новосибирск, Октябрьский',
                         date: '23.06.2026',
-                        image: 'https://picsum.photos/seed/robotvac/400/300'
+                        image: 'https://picsum.photos/seed/robotvac/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p7',
@@ -1322,7 +1315,9 @@
                         category: 'auto',
                         location: 'Уфа, Ленинский',
                         date: '22.06.2026',
-                        image: 'https://picsum.photos/seed/bike/400/300'
+                        image: 'https://picsum.photos/seed/bike/400/300',
+                        userId: null,
+                        status: 'active'
                     },
                     {
                         id: 'p8',
@@ -1332,7 +1327,9 @@
                         category: 'electronics',
                         location: 'Санкт-Петербург, Центральный',
                         date: '21.06.2026',
-                        image: 'https://picsum.photos/seed/headphones/400/300'
+                        image: 'https://picsum.photos/seed/headphones/400/300',
+                        userId: null,
+                        status: 'active'
                     }
                 ],
                 cart: [],
@@ -1374,10 +1371,11 @@
 
         let currentCategory = 'all';
         let currentSearchTerm = '';
+        let selectedPhotos = [];
 
         function renderProducts() {
             const data = loadData();
-            let filtered = data.products;
+            let filtered = data.products.filter(p => p.status === 'active');
 
             // Filter by category
             if (currentCategory !== 'all') {
@@ -1433,7 +1431,7 @@
         function getCategoryName(category) {
             const names = {
                 'all': 'Все',
-                'electronics': 'Электрон��ка',
+                'electronics': 'Электроника',
                 'clothing': 'Одежда',
                 'home': 'Дом',
                 'auto': 'Авто'
@@ -1443,8 +1441,9 @@
 
         function updateStats() {
             const data = loadData();
-            document.getElementById('totalListings').textContent = data.products.length;
-            document.getElementById('weekListings').textContent = Math.floor(data.products.length * 0.7);
+            const activeCount = data.products.filter(p => p.status === 'active').length;
+            document.getElementById('totalListings').textContent = activeCount;
+            document.getElementById('weekListings').textContent = Math.floor(activeCount * 0.7);
         }
 
         function filterByCategory(category) {
@@ -1475,7 +1474,11 @@
 
         function closeModal(modalId) {
             document.getElementById(modalId).classList.remove('show');
-            toggleMenu(true); // Close menu
+            if (modalId === 'publishModal') {
+                selectedPhotos = [];
+                document.getElementById('photoPreview').innerHTML = '';
+            }
+            toggleMenu(true);
         }
 
         function switchModal(fromModal, toModal) {
@@ -1484,13 +1487,13 @@
         }
 
         // ============================================================
-        //  AUTHENTICATION (PERSISTENT SESSION)
+        //  AUTHENTICATION
         // ============================================================
 
         function openLoginModal() {
             const data = loadData();
             if (data.currentUser) {
-                openModal('cartModal');
+                openProfileModal();
             } else {
                 openModal('loginModal');
             }
@@ -1555,17 +1558,219 @@
             data.currentUser = null;
             saveData(data);
             updateUserDisplay();
-            closeModal('cartModal');
+            closeModal('profileModal');
             showToast('Вы вышли из аккаунта', 'success');
         }
 
         function updateUserDisplay() {
             const data = loadData();
             const userDisplay = document.getElementById('userDisplay');
+            const publishBtn = document.getElementById('publishBtn');
+            const profileMenuBtn = document.getElementById('profileMenuBtn');
+            
             if (data.currentUser) {
                 userDisplay.textContent = data.currentUser.name.split(' ')[0];
+                publishBtn.style.display = 'flex';
+                profileMenuBtn.style.display = 'flex';
             } else {
                 userDisplay.textContent = 'Войти';
+                publishBtn.style.display = 'none';
+                profileMenuBtn.style.display = 'none';
+            }
+        }
+
+        // ============================================================
+        //  PUBLISH LISTING
+        // ============================================================
+
+        function openPublishModal() {
+            const data = loadData();
+            if (!data.currentUser) {
+                showToast('Пожалуйста, войдите в аккаунт', 'error');
+                return;
+            }
+            selectedPhotos = [];
+            document.getElementById('photoPreview').innerHTML = '';
+            openModal('publishModal');
+        }
+
+        function addPhoto(event) {
+            const files = event.target.files;
+            for (let file of files) {
+                if (selectedPhotos.length >= 5) {
+                    showToast('Максимум 5 фото', 'error');
+                    break;
+                }
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    selectedPhotos.push(e.target.result);
+                    renderPhotoPreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function renderPhotoPreview() {
+            const preview = document.getElementById('photoPreview');
+            preview.innerHTML = selectedPhotos.map((photo, index) => `
+                <div class="photo-item">
+                    <img src="${photo}" alt="Photo ${index + 1}" />
+                    <button type="button" class="photo-remove" onclick="removePhoto(${index})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function removePhoto(index) {
+            selectedPhotos.splice(index, 1);
+            renderPhotoPreview();
+        }
+
+        function publishListing(event) {
+            event.preventDefault();
+            const data = loadData();
+            
+            if (!selectedPhotos.length) {
+                showToast('Пожалуйста, добавьте хотя бы одно фото', 'error');
+                return;
+            }
+
+            const listing = {
+                id: 'p' + Date.now(),
+                title: document.getElementById('pubTitle').value,
+                description: document.getElementById('pubDescription').value,
+                price: parseInt(document.getElementById('pubPrice').value),
+                location: document.getElementById('pubLocation').value,
+                category: document.getElementById('pubCategory').value,
+                image: selectedPhotos[0],
+                photos: selectedPhotos,
+                userId: data.currentUser.id,
+                status: 'active',
+                date: new Date().toLocaleDateString('ru-RU')
+            };
+
+            data.products.push(listing);
+            saveData(data);
+            closeModal('publishModal');
+            renderProducts();
+            showToast('Объявление опубликовано!', 'success');
+        }
+
+        // ============================================================
+        //  PROFILE
+        // ============================================================
+
+        function openProfileModal() {
+            const data = loadData();
+            if (!data.currentUser) {
+                showToast('Пожалуйста, войдите в аккаунт', 'error');
+                return;
+            }
+            renderProfileContent();
+            openModal('profileModal');
+        }
+
+        function renderProfileContent() {
+            const data = loadData();
+            const userListings = data.products.filter(p => p.userId === data.currentUser.id);
+            const activeListings = userListings.filter(p => p.status === 'active');
+            const closedListings = userListings.filter(p => p.status === 'closed');
+
+            const profileContent = document.getElementById('profileContent');
+            profileContent.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-name">${data.currentUser.name}</div>
+                    <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">${data.currentUser.email}</div>
+                    <button class="modal-button secondary" onclick="logoutUser()">Выход</button>
+                </div>
+
+                <div class="profile-tabs">
+                    <button class="profile-tab active" onclick="switchProfileTab('active', this)">
+                        Активные (${activeListings.length})
+                    </button>
+                    <button class="profile-tab" onclick="switchProfileTab('closed', this)">
+                        Закрытые (${closedListings.length})
+                    </button>
+                </div>
+
+                <div id="profileTabContent">
+                    ${renderProfileListings(activeListings, 'active')}
+                </div>
+            `;
+        }
+
+        function renderProfileListings(listings, type) {
+            if (listings.length === 0) {
+                return `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📦</div>
+                        <div class="empty-state-title">Нет ${type === 'active' ? 'активных' : 'закрытых'} объявлений</div>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="product-grid" style="margin-bottom: 20px;">
+                    ${listings.map(product => `
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="${product.image}" alt="${product.title}" />
+                                <span class="product-status-tag ${product.status === 'active' ? 'status-active' : 'status-closed'}">
+                                    ${product.status === 'active' ? '✓ Активно' : '✕ Закрыто'}
+                                </span>
+                            </div>
+                            <div class="product-body">
+                                <h3 class="product-title">${product.title}</h3>
+                                <div class="product-price">${product.price.toLocaleString('ru-RU')} ₽</div>
+                                <div class="product-meta">
+                                    <div class="product-location">📍 ${product.location}</div>
+                                    <div>📅 ${product.date}</div>
+                                </div>
+                                <div class="product-actions">
+                                    ${product.status === 'active' ? `
+                                        <button class="btn-secondary" onclick="changeLisitingStatus('${product.id}', 'closed')">Убрать</button>
+                                        <button class="btn-danger" onclick="changeLisitingStatus('${product.id}', 'sold')">Продано</button>
+                                    ` : `
+                                        <button class="btn-primary" onclick="changeLisitingStatus('${product.id}', 'active')">Вернуть</button>
+                                    `}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function switchProfileTab(tab, element) {
+            document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+
+            const data = loadData();
+            const userListings = data.products.filter(p => p.userId === data.currentUser.id);
+            let listings;
+
+            if (tab === 'active') {
+                listings = userListings.filter(p => p.status === 'active');
+            } else {
+                listings = userListings.filter(p => p.status === 'closed' || p.status === 'sold');
+            }
+
+            document.getElementById('profileTabContent').innerHTML = renderProfileListings(listings, tab);
+        }
+
+        function changeLisitingStatus(productId, newStatus) {
+            const data = loadData();
+            const product = data.products.find(p => p.id === productId);
+            if (product) {
+                product.status = newStatus;
+                saveData(data);
+                renderProfileContent();
+                showToast(
+                    newStatus === 'active' ? 'Объявление возвращено' :
+                    newStatus === 'sold' ? 'Товар отмечен как проданный' :
+                    'Объявление убрано с публикации',
+                    'success'
+                );
             }
         }
 
@@ -1633,7 +1838,7 @@
 
             if (data.cart.length === 0) {
                 cartContent.innerHTML = `
-                    <div class="cart-empty">
+                    <div class="empty-state">
                         <div style="font-size: 48px; margin-bottom: 16px;">🛒</div>
                         <div>Ваша корзина пуста</div>
                         <button class="modal-button" onclick="closeModal('cartModal'); renderProducts()" style="margin-top: 16px;">Вернуться к покупкам</button>
@@ -1643,7 +1848,6 @@
             }
 
             const total = data.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const installment = calculateInstallment(total);
 
             cartContent.innerHTML = `
                 <div>
@@ -1672,41 +1876,12 @@
 
                     ${data.currentUser ? `
                         <div style="margin-top: 20px;">
-                            <h3 style="font-weight: 600; margin-bottom: 12px;">Способ оплаты:</h3>
-                            
-                            <div class="payment-method selected" onclick="selectPayment('card', this)">
-                                <div class="payment-radio"></div>
-                                <div class="payment-info">
-                                    <div class="payment-title">💳 Банковская карта</div>
-                                    <div class="payment-desc">Оплата через Сбербанк</div>
-                                </div>
-                            </div>
-
-                            <div class="payment-method" onclick="selectPayment('installment', this)">
-                                <div class="payment-radio"></div>
-                                <div class="payment-info">
-                                    <div class="payment-title">📅 Рассрочка</div>
-                                    <div class="payment-desc">От ${installment.toLocaleString('ru-RU')} ₽ в месяц</div>
-                                </div>
-                            </div>
-
-                            <div class="installment-section" id="installmentInfo">
-                                <div class="installment-info">
-                                    💡 <strong>Условия рассрочки:</strong><br>
-                                    • Сумма заказа: ${total.toLocaleString('ru-RU')} ₽<br>
-                                    • Ежемесячный платёж: ${installment.toLocaleString('ru-RU')} ₽<br>
-                                    • Свяжитесь с администратором для оформления
-                                </div>
-                            </div>
-
-                            <div style="display: flex; gap: 8px; margin-top: 16px;">
-                                <button class="modal-button" onclick="processPayment('${total}')">
-                                    Оформить покупку
-                                </button>
-                                <button class="modal-button secondary" onclick="closeModal('cartModal')">
-                                    Отмена
-                                </button>
-                            </div>
+                            <button class="modal-button" onclick="showToast('Переходим к оплате...', 'success'); setTimeout(() => { window.open('https://www.sberbank.com/sms/pbpn?requisiteNumber=79604438457', '_blank'); data.cart = []; saveData(data); updateCartBadge(); closeModal('cartModal'); }, 500);">
+                                Оформить покупку
+                            </button>
+                            <button class="modal-button secondary" onclick="closeModal('cartModal')" style="margin-top: 8px;">
+                                Отмена
+                            </button>
                         </div>
                     ` : `
                         <div style="background: var(--bg-primary); padding: 14px; border-radius: 10px; margin-top: 16px; text-align: center;">
@@ -1718,49 +1893,6 @@
                     `}
                 </div>
             `;
-        }
-
-        function calculateInstallment(total) {
-            if (total < 40000) return Math.ceil(total / 10);
-            if (total < 60000) return 5000;
-            if (total < 80000) return 8000;
-            if (total < 100000) return 12000;
-            return 20000; // Max installment
-        }
-
-        function selectPayment(method, element) {
-            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            
-            const installmentInfo = document.getElementById('installmentInfo');
-            if (method === 'installment') {
-                installmentInfo.classList.add('show');
-            } else {
-                installmentInfo.classList.remove('show');
-            }
-        }
-
-        function processPayment(amount) {
-            const data = loadData();
-            const selectedPayment = document.querySelector('.payment-method.selected');
-            const paymentType = selectedPayment.querySelector('.payment-title').textContent.includes('Рассрочка') ? 'installment' : 'card';
-
-            if (paymentType === 'card') {
-                // Redirect to Sberbank payment link
-                window.open('https://www.sberbank.com/sms/pbpn?requisiteNumber=79604438457', '_blank');
-                showToast('Переходим к оплате... После успешной оплаты ваш заказ будет обработан', 'success');
-            } else {
-                showToast('Свяжитесь с администратором для оформления рассрочки: https://vk.ru/deadboy102', 'success');
-            }
-
-            // Clear cart after order
-            setTimeout(() => {
-                data.cart = [];
-                saveData(data);
-                updateCartBadge();
-                closeModal('cartModal');
-                renderCart();
-            }, 1000);
         }
 
         // ============================================================
@@ -1798,7 +1930,7 @@
                 <button class="modal-button" onclick="addToCart('${product.id}'); closeModal('detailModal'); showToast('Товар добавлен в корзину', 'success');">
                     ✓ Добавить в корзину
                 </button>
-                <button class="modal-button secondary" onclick="closeModal('detailModal')">
+                <button class="modal-button secondary" onclick="closeModal('detailModal')" style="margin-top: 8px;">
                     Закрыть
                 </button>
             `;
@@ -1851,7 +1983,6 @@
             updateUserDisplay();
         });
 
-        // Clear login form errors on input
         document.getElementById('loginEmail')?.addEventListener('input', () => {
             document.getElementById('loginError').classList.remove('show');
         });
